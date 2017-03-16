@@ -19,8 +19,18 @@ struct dot {
 
 // Edge structure:
 struct edge {
-    double first_end;
-    double second_end;
+    double firstEnd;
+    double secondEnd;
+};
+
+// Model structure:
+struct model {
+    dot *dots;
+
+    edge *edges;
+
+    int numberOfDots;
+    int numberOfEdges;
 };
 
 #endif //VIEWER_STRCUTURES_OF_TYPES_H
