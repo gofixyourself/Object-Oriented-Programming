@@ -33,4 +33,20 @@ struct model {
     int numberOfEdges;
 };
 
+// Structure of dots array:
+struct arrayOfDots {
+    dot *array;
+
+    int amount;
+    int index;
+};
+
+// Structure of edges array:
+struct arrayOfEdges{
+    edge *array;
+
+    int amount;
+    int index;
+};
+
 #endif //VIEWER_STRCUTURES_OF_TYPES_H
