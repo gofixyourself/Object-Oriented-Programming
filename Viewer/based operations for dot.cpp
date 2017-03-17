@@ -10,16 +10,24 @@ void initialization(struct arrayOfDots &ourArray)
     ourArray.index = 0;
 }
 
-int createArrayOfDots(struct arrayOfDots &ourArray, struct dot, int size)
+// Comment
+int createArrayOfDots(struct arrayOfDots &ourArray, int size)
 {
     ourArray.array = (struct dot*)malloc(size * sizeof(struct dot));
 
-    if(!ourArray.array) {
+    if(!ourArray.array)
         return MEMORY_ALLOCATION_ERROR;
-    }
 
     ourArray.amount = size;
     ourArray.index = 0;
+
+    return ALL_IS_WELL;
+}
+
+// Comment
+int insertDot(struct arrayOfDots&ourArray, struct dot ourDot)
+{
+    ourArray.array[ourArray.index++] = ourDot;
 
     return ALL_IS_WELL;
 }
