@@ -66,7 +66,6 @@ MainWindow::~MainWindow()
 void MainWindow::scaling(int coefficient)
 {
     action scale;
-
     drawingAModel draw;
 
     draw = drawing(ui->view, coefficient, ui->view->height(), ui->view->width());
@@ -80,13 +79,11 @@ void MainWindow::scaling(int coefficient)
         error_messenger(error);
 }
 
-// Function for turn left
-void MainWindow::turnLeft()
+// Function for turning left:
+void MainWindow::turningLeft()
 {
     turningAModel forTurn;
-
     action toTheLeft;
-
     drawingAModel draw;
 
     forTurn.coefficient = 3;
@@ -106,6 +103,62 @@ void MainWindow::turnLeft()
 
     error = (errors)checkProcess(toTheLeft);
 
+    if (error)
+        errorMessenger(error);
+}
+
+// Function for turning right:
+void MainWindow::turningRight()
+{
+    turningAModel forTurn;
+    action toTheRight;
+    drawingAModel draw;
+
+    forTurn.coefficient = -3;
+
+    toTheRight.turn = forTurn;
+    toTheRight.toDO = TURN_RIGHT;
+
+    errors error = (errors)checkProcess(toTheRight);
+
+    if (error)
+        errorMessenger(error);
+
+    draw = drawing(ui->view, ui->scale->value(), ui->view->height(), ui->view->width());
+
+    toTheLeft.toDO = DRAWING;
+    toTheLeft.draw = draw;
+
+    error = (errors)checkProcess(toTheLeft);
+
     if(error)
+        errorMessenger(error);
+}
+
+// Function for turning up:
+void MainWindow::turningUp()
+{
+    turningAModel forTurn;
+    action toTheUp;
+    drawingAModel draw;
+
+    forTurn.coefficient = -3;
+
+    toTheUp.toDo = TURN_UP;
+    toTheUp.turn= forTurn;
+
+    errors error = (errors)checkProcess(toTheUp);
+
+    if (error)
+        errorMessenger(error);
+
+    draw = drawing(ui->view, ui->scale->value(), ui->view->height(), ui->view->width());
+
+    toTheUp.toDo = DRAWING;
+    toTheUp.draw = draw;
+
+    error = (errors)checkProcess(toTheUp);
+
+    if (error)
         errorMessenger(error);
 }
