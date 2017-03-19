@@ -14,6 +14,19 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     checkProcess(openWindow);
 }
 
+// To draw a model:
+struct drawingAModel MainWindow::drawing(QGraphicsView *pen, int height, int width, int scale)
+{
+    struct drawingAModel draw;
+
+    draw.pen = pen;
+    draw.height = height;
+    draw.width = width;
+    draw.scale = scale;
+
+    return draw;
+}
+
 // Opening a file:
 void MainWindow::openingAFile()
 {
@@ -40,7 +53,7 @@ void MainWindow::openingAFile()
 }
 
 // Closing the program:
-MainWindow::closingAll()
+MainWindow::~MainWindow()
 {
     struct action closing;
 
