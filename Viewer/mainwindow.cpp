@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
 
-    struct action openWindow;
+    action openWindow;
     openWindow.toDo = OPEN;
 
     checkProcess(openWindow);
@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 // To draw a model:
 struct drawingAModel MainWindow::drawing(QGraphicsView *pen, int height, int width, int scale)
 {
-    struct drawingAModel draw;
+    drawingAModel draw;
 
     draw.pen = pen;
     draw.height = height;
@@ -30,12 +30,12 @@ struct drawingAModel MainWindow::drawing(QGraphicsView *pen, int height, int wid
 // Opening a file:
 void MainWindow::openingAFile()
 {
-    struct action opening;
+    action opening;
 
     // Indicate current state of the event:
     opening.toDo = LOAD;
 
-    struct loadingAFile inputFile;
+    loadingAFile inputFile;
 
     // Read the name of file:
     inputFile.name = ui->name->text().toStdString().c_str();
@@ -55,12 +55,30 @@ void MainWindow::openingAFile()
 // Closing the program:
 MainWindow::~MainWindow()
 {
-    struct action closing;
+    action closing;
 
     closing.toDo = QUIT;
 
     checkProcess(com);
 
     delete ui;
+}
+
+// Function for scaling a model:
+void MainWindow::scaling(int coefficient)
+{
+    action scale;
+
+    drawingAModel draw;
+
+    draw = drawing(ui->view, coefficient, ui->view->height(), ui->view->width());
+
+    scale.toDO = DRAW;
+    scale.draw = draw;
+
+    enum errors error = (enum errors)checkingProcess(scale);
+
+    if (error)
+        error_messenger(error);
 }
 
