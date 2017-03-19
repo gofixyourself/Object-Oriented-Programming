@@ -1,4 +1,6 @@
 #include <cstdlib>
+
+#include "based operations for dot.h"
 #include "strcutures of types.h"
 #include "errors.h"
 
@@ -33,6 +35,37 @@ int insertDot(arrayOfDots&ourArray, dot ourDot)
     return ALL_IS_WELL;
 }
 
+// Take the needful dot:
+int popDot(dot &needfulDot, arrayOfDots &ourArray, int index)
+{
+    needfulDot = ourArray.array[index];
 
+    return ALL_IS_WELL;
+}
 
+// Setting dot to the desired location in array:
+int settingDot(arrayOfDots &ourArray, dot &ourDot, int index)
+{
+    ourArray.array[index]= ourDot;
 
+    return ALL_IS_WELL;
+}
+
+// Check for emptiness:
+int isempty(arrayOfDots &ourArray)
+{
+    return (ourArray.index == 0);
+}
+
+// For clearing array of dots:
+int clearingArrayDots(arrayOfDots &ourArray)
+{
+    if (ourArray.array)
+        free(ourArray.array);
+
+    ourArray.array = 0;
+    ourArray.amount = 0;
+    ourArray.index = 0;
+
+    return AL_IS_WELL;
+}
