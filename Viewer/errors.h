@@ -10,6 +10,6 @@ enum errors{
     ALL_IS_WELL
 };
 
-void errorMessage(enum errors err);
+void errorMessage(enum errors ourError);
 
 #endif //VIEWER_ERRORS_H
