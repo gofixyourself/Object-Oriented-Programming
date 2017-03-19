@@ -47,7 +47,7 @@ void MainWindow::openingAFile()
     errors error = (errors)checkProcess(opening);
 
     if (error)
-        error_messenger(error);
+        errorMessenger(error);
 }
 
 // Closing the program:
@@ -57,7 +57,7 @@ MainWindow::~MainWindow()
 
     closing.toDo = QUIT;
 
-    checkProcess(com);
+    checkProcess(closing);
 
     delete ui;
 }
@@ -71,12 +71,12 @@ void MainWindow::scaling(int coefficient)
     draw = drawing(ui->view, coefficient, ui->view->height(), ui->view->width());
 
     scale.draw = draw;
-    scale.toDO = DRAWING;
+    scale.toDo = DRAWING;
 
-    errors error = (errors)checkingProcess(scale);
+    errors error = (errors)checkProcess(scale);
 
     if (error)
-        error_messenger(error);
+        errorMessenger(error);
 }
 
 // Function for turning left:
@@ -89,7 +89,7 @@ void MainWindow::turningLeft()
     forTurn.coefficient = 3;
 
     toTheLeft.turn = forTurn;
-    toTheLeft.toDO = TURN_LEFT;
+    toTheLeft.toDo = TURN_LEFT;
 
     errors error = (errors)checkProcess(toTheLeft);
 
@@ -98,7 +98,7 @@ void MainWindow::turningLeft()
 
     draw = drawing(ui->view, ui->scale->value(), ui->view->height(), ui->view->width());
 
-    toTheLeft.toDO = DRAWING;
+    toTheLeft.toDo = DRAWING;
     toTheLeft.draw = draw;
 
     error = (errors)checkProcess(toTheLeft);
@@ -117,7 +117,7 @@ void MainWindow::turningRight()
     forTurn.coefficient = -3;
 
     toTheRight.turn = forTurn;
-    toTheRight.toDO = TURN_RIGHT;
+    toTheRight.toDo = TURN_RIGHT;
 
     errors error = (errors)checkProcess(toTheRight);
 
@@ -126,12 +126,12 @@ void MainWindow::turningRight()
 
     draw = drawing(ui->view, ui->scale->value(), ui->view->height(), ui->view->width());
 
-    toTheLeft.toDO = DRAWING;
-    toTheLeft.draw = draw;
+    toTheRight.toDo = DRAWING;
+    toTheRight.draw = draw;
 
-    error = (errors)checkProcess(toTheLeft);
+    error = (errors)checkProcess(toTheRight);
 
-    if(error)
+    if (error)
         errorMessenger(error);
 }
 
