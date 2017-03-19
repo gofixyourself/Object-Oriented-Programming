@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
 
     action openWindow;
-    openWindow.toDo = OPEN;
+    openWindow.toDo = OPENING;
 
     checkProcess(openWindow);
 }
@@ -33,7 +33,7 @@ void MainWindow::openingAFile()
     action opening;
 
     // Indicate current state of the event:
-    opening.toDo = LOAD;
+    opening.toDo = LOADING;
 
     loadingAFile inputFile;
 
@@ -44,12 +44,10 @@ void MainWindow::openingAFile()
     opening.load = inputFile;
 
     // Checking action for possible errors:
-    enum errors error = (enum errors)checkProcess(opening);
+    errors error = (errors)checkProcess(opening);
 
     if (error)
         error_messenger(error);
-
-    on_scale_sliderMoved(50);
 }
 
 // Closing the program:
@@ -73,12 +71,41 @@ void MainWindow::scaling(int coefficient)
 
     draw = drawing(ui->view, coefficient, ui->view->height(), ui->view->width());
 
-    scale.toDO = DRAW;
     scale.draw = draw;
+    scale.toDO = DRAWING;
 
-    enum errors error = (enum errors)checkingProcess(scale);
+    errors error = (errors)checkingProcess(scale);
 
     if (error)
         error_messenger(error);
 }
 
+// Function for turn left
+void MainWindow::turnLeft()
+{
+    turningAModel forTurn;
+
+    action toTheLeft;
+
+    drawingAModel draw;
+
+    forTurn.coefficient = 3;
+
+    toTheLeft.turn = forTurn;
+    toTheLeft.toDO = TURN_LEFT;
+
+    errors error = (errors)checkProcess(toTheLeft);
+
+    if (error)
+        errorMessenger(error);
+
+    draw = drawing(ui->view, ui->scale->value(), ui->view->height(), ui->view->width());
+
+    toTheLeft.toDO = DRAWING;
+    toTheLeft.draw = draw;
+
+    error = (errors)checkProcess(toTheLeft);
+
+    if(error)
+        errorMessenger(error);
+}
