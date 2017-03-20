@@ -1,7 +1,7 @@
 #ifndef VIEWER_ERRORS_H
 #define VIEWER_ERRORS_H
 
-enum errors{
+enum errors {
     FILE_ERROR,
     INCORRECT_TYPES,
     MEMORY_ALLOCATION_ERROR,
