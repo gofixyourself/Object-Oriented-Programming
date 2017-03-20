@@ -11,11 +11,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     action openWindow;
     openWindow.toDo = OPENING;
 
-    checkProcess(openWindow);
+    process(openWindow);
 }
 
 // To draw a model:
-struct drawingAModel MainWindow::drawing(QGraphicsView *pen, int height, int width, int scale)
+drawingAModel MainWindow::drawing(QGraphicsView *pen, int height, int width, int scale)
 {
     drawingAModel draw;
 
@@ -44,7 +44,7 @@ void MainWindow::openingAFile()
     opening.load = inputFile;
 
     // Checking action for possible errors:
-    errors error = (errors)checkProcess(opening);
+    errors error = (errors)process(opening);
 
     if (error)
         errorMessenger(error);
@@ -57,7 +57,7 @@ MainWindow::~MainWindow()
 
     closing.toDo = QUIT;
 
-    checkProcess(closing);
+    process(closing);
 
     delete ui;
 }
@@ -73,7 +73,7 @@ void MainWindow::scaling(int coefficient)
     scale.draw = draw;
     scale.toDo = DRAWING;
 
-    errors error = (errors)checkProcess(scale);
+    errors error = (errors)process(scale);
 
     if (error)
         errorMessenger(error);
@@ -91,7 +91,7 @@ void MainWindow::turningLeft()
     toTheLeft.turn = forTurn;
     toTheLeft.toDo = TURN_LEFT;
 
-    errors error = (errors)checkProcess(toTheLeft);
+    errors error = (errors)process(toTheLeft);
 
     if (error)
         errorMessenger(error);
@@ -101,7 +101,7 @@ void MainWindow::turningLeft()
     toTheLeft.toDo = DRAWING;
     toTheLeft.draw = draw;
 
-    error = (errors)checkProcess(toTheLeft);
+    error = (errors)process(toTheLeft);
 
     if (error)
         errorMessenger(error);
@@ -119,7 +119,7 @@ void MainWindow::turningRight()
     toTheRight.turn = forTurn;
     toTheRight.toDo = TURN_RIGHT;
 
-    errors error = (errors)checkProcess(toTheRight);
+    errors error = (errors)process(toTheRight);
 
     if (error)
         errorMessenger(error);
@@ -129,7 +129,7 @@ void MainWindow::turningRight()
     toTheRight.toDo = DRAWING;
     toTheRight.draw = draw;
 
-    error = (errors)checkProcess(toTheRight);
+    error = (errors)process(toTheRight);
 
     if (error)
         errorMessenger(error);
@@ -147,7 +147,7 @@ void MainWindow::turningUp()
     toTheUp.toDo = TURN_UP;
     toTheUp.turn= forTurn;
 
-    errors error = (errors)checkProcess(toTheUp);
+    errors error = (errors)process(toTheUp);
 
     if (error)
         errorMessenger(error);
@@ -157,8 +157,35 @@ void MainWindow::turningUp()
     toTheUp.toDo = DRAWING;
     toTheUp.draw = draw;
 
-    error = (errors)checkProcess(toTheUp);
+    error = (errors)process(toTheUp);
 
     if (error)
         errorMessenger(error);
+}
+
+// Function for turning down:
+void MainWindow::turningDown()
+{
+    turningAModel forTurn;
+    action toTheDown;
+    drawingAModel draw;
+
+    forTurn.coefficient = 3;
+
+    toTheDown.toDo = TURN_DOWN;
+    toTheDown.turn = forTurn;
+
+    errors error = (errors)process(toTheDown);
+
+    if (error)
+           errorMessenger(error);
+
+    draw = drawing(ui->view,ui->scale->value(),ui->view->height(),ui->view->width());
+    toTheDown.toDo = DRAWING;
+    toTheDown.draw = draw;
+
+    error = (errors)process(toTheDown);
+
+    if (error)
+           errorMessenger(error);
 }
