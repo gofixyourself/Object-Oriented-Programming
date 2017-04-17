@@ -1,6 +1,28 @@
-#ifndef VIEWER_BASED_OPERATIONS_FOR_DOT_H
-#define VIEWER_BASED_OPERATIONS_FOR_DOT_H
+#ifndef EDGE_H
+#define EDGE_H
 
-void initialization(arrayOfEdges &ourArray);
+#include "dot.h"
 
-#endif //VIEWER_BASED_OPERATIONS_FOR_DOT_H
+// Edge structure:
+struct edge {
+    dot *firstEnd;
+    dot *secondEnd;
+};
+
+// Structure of edges array:
+struct arrayOfEdges {
+    edge *array;
+
+    int amount;
+    int index;
+};
+
+void initializationEdge(arrayOfEdges &ourArray);
+int createArrayOfEdges(arrayOfEdges &ourArray, int size);
+int insertEdge(arrayOfEdges &ourArray, edge ourEdge);
+int popEdge(edge &needfulEdge, arrayOfEdges &ourArray, int index);
+int settingEdge(arrayOfEdges &ourArray, int index, edge &ourEdge);
+int isEmpty(arrayOfEdges &ourArray);
+int clearingArrayEdges(arrayOfEdges &ourArray);
+
+#endif // EDGE_H

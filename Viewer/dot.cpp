@@ -1,11 +1,10 @@
 #include <cstdlib>
 
-#include "based operations for dot.h"
-#include "strcutures of types.h"
+#include "dot.h"
 #include "errors.h"
 
-// Initializing a point:
-void initialization(arrayOfDots &ourArray)
+// Initializing a dot:
+void initializationDot(arrayOfDots &ourArray)
 {
     ourArray.array = 0;
     ourArray.amount = 0;
@@ -52,7 +51,7 @@ int settingDot(arrayOfDots &ourArray, dot &ourDot, int index)
 }
 
 // Check for emptiness:
-int isempty(arrayOfDots &ourArray)
+int isEmpty(arrayOfDots &ourArray)
 {
     return (ourArray.index == 0);
 }
@@ -67,5 +66,5 @@ int clearingArrayDots(arrayOfDots &ourArray)
     ourArray.amount = 0;
     ourArray.index = 0;
 
-    return AL_IS_WELL;
+    return ALL_IS_WELL;
 }

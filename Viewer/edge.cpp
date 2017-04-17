@@ -1,9 +1,11 @@
 #include <cstdlib>
-#include "strcutures of types.h"
-#include "errors.h"
 
-// Initializing a point:
-void initialization(arrayOfEdges &ourArray)
+#include "edge.h"
+#include "errors.h"
+#include "strcutures of types.h"
+
+// Initializing a edge:
+void initializationEdge(arrayOfEdges &ourArray)
 {
     ourArray.array = 0;
     ourArray.amount= 0;
@@ -20,7 +22,7 @@ int createArrayOfEdges(arrayOfEdges &ourArray, int size)
         return MEMORY_ALLOCATION_ERROR;
 
     ourArray.index = 0;
-    ourArray.size = size;
+    ourArray.amount = size;
 
     return ALL_IS_WELL;
 }
@@ -28,7 +30,7 @@ int createArrayOfEdges(arrayOfEdges &ourArray, int size)
 // Writing to an array of edges joints:
 int insertEdge(arrayOfEdges &ourArray, edge ourEdge)
 {
-    ourArray.array[arrayOfEdges.index++] = edge;
+    ourArray.array[ourArray.index++] = ourEdge;
 
     return ALL_IS_WELL;
 }
@@ -42,13 +44,12 @@ int popEdge(edge &needfulEdge, arrayOfEdges &ourArray, int index)
 }
 
 // Setting edge to the desired location in array:
-int set(arrayOfEdges &ourArray, int index, edge &ourEdge)
+int settingEdge(arrayOfEdges &ourArray, int index, edge &ourEdge)
 {
     ourArray.array[index] = ourEdge;
 
     return ALL_IS_WELL;
 }
-
 
 // Check for emptiness:
 int isEmpty(arrayOfEdges &ourArray)
@@ -63,7 +64,7 @@ int clearingArrayEdges(arrayOfEdges &ourArray)
         free(ourArray.array);
 
     ourArray.array = 0;
-    ourArray.number = 0;
+    ourArray.amount = 0;
     ourArray.index = 0;
 
     return ALL_IS_WELL;
