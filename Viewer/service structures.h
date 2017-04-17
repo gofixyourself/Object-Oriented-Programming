@@ -1,9 +1,12 @@
-#ifndef STRUCTURES_FOR_DISPLAY_STATUS_H
-#define STRUCTURES_FOR_DISPLAY_STATUS_H
+#ifndef SERVICE_STRUCTURES_H
+#define SERVICE_STRUCTURES_H
 
-// Function for checking actions:
-int checkProcess(struct action ourAction);
-
+#include "errors.h"
+#include "QGraphicsView"
+#include "for loading.h"
+#include "for drawing.h"
+#include "for turning.h"
+#include "for scaling.h"
 
 // Status list:
 enum events {
@@ -12,44 +15,10 @@ enum events {
     QUIT,
     DRAWING,
     SCALING,
-    TURN_LEFT,
-    TURN_RIGHT,
+    VERTICAL_ROTATION,
+    HORIZONTAL_ROTATION,
     TURN_UP,
     TURN_DOWN
-};
-
-// Structure of file loading event:
-struct loadingAFile {
-    const char *name;
-};
-
-// Structure of model drawing event:
-struct drawingAModel {
-    QGraphicsView *pen;
-
-    int height;
-    int width;
-    int scale;
-};
-
-// Structure of model move event:
-struct moveAModel {
-    int coefficient;
-};
-
-// Structure of model turning event:
-struct turningAModel {
-    int coefficient;
-};
-
-// Structure of model scaling event:
-struct scalingAModel {
-    int coefficient;
-};
-
-struct drawingOnDisplay {
-    QGraphicsScene* newPicture;
-    QPen pen;
 };
 
 // Correlation of status and action:
@@ -61,10 +30,9 @@ struct action {
     {
         struct loadingAFile load;
         struct drawingAModel draw;
-        struct moveAModel move;
         struct turningAModel turn;
         struct scalingAModel scale;
     };
 };
 
-#endif // STRUCTURES_FOR_DISPLAY_STATUS_H
+#endif // SERVICE_STRUCTURES_H
