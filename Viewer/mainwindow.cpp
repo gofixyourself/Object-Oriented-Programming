@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "strcutures of types.h"
-#include "errors.h"
+#include "entry.h"
 
 // Opening the program window:
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -28,7 +27,7 @@ drawingAModel MainWindow::drawing(QGraphicsView *pen, int height, int width, int
 }
 
 // Opening a file:
-void MainWindow::openingAFile()
+void MainWindow::on_open_clicked()
 {
     action opening;
 
@@ -38,7 +37,7 @@ void MainWindow::openingAFile()
     loadingAFile inputFile;
 
     // Read the name of file:
-    inputFile.name = ui->name->text().toStdString().c_str();
+    inputFile.name = ui->filename->text().toStdString().c_str();
 
     // Loafing a file with the specified name:
     opening.load = inputFile;
@@ -48,6 +47,8 @@ void MainWindow::openingAFile()
 
     if (error)
         errorMessenger(error);
+
+     on_scale_sliderMoved(35);
 }
 
 // Closing the program:
@@ -63,12 +64,10 @@ MainWindow::~MainWindow()
 }
 
 // Function for scaling a model:
-void MainWindow::scaling(int coefficient)
+void MainWindow::on_scale_sliderMoved(int position)
 {
     action scale;
-    drawingAModel draw;
-
-    draw = drawing(ui->view, coefficient, ui->view->height(), ui->view->width());
+    drawingAModel draw = drawing(ui->view, position, ui->view->height(), ui->view->width());
 
     scale.draw = draw;
     scale.toDo = DRAWING;
@@ -80,7 +79,7 @@ void MainWindow::scaling(int coefficient)
 }
 
 // Function for turning left:
-void MainWindow::turningLeft()
+void MainWindow::on_turn_left_clicked()
 {
     turningAModel forTurn;
     action toTheLeft;
@@ -89,7 +88,7 @@ void MainWindow::turningLeft()
     forTurn.coefficient = 3;
 
     toTheLeft.turn = forTurn;
-    toTheLeft.toDo = TURN_LEFT;
+    toTheLeft.toDo = HORIZONTAL_ROTATION;
 
     errors error = (errors)process(toTheLeft);
 
@@ -108,7 +107,7 @@ void MainWindow::turningLeft()
 }
 
 // Function for turning right:
-void MainWindow::turningRight()
+void MainWindow::on_turn_right_clicked()
 {
     turningAModel forTurn;
     action toTheRight;
@@ -117,7 +116,7 @@ void MainWindow::turningRight()
     forTurn.coefficient = -3;
 
     toTheRight.turn = forTurn;
-    toTheRight.toDo = TURN_RIGHT;
+    toTheRight.toDo = VERTICAL_ROTATION;
 
     errors error = (errors)process(toTheRight);
 
@@ -136,7 +135,7 @@ void MainWindow::turningRight()
 }
 
 // Function for turning up:
-void MainWindow::turningUp()
+void MainWindow::on_turn_up_clicked()
 {
     turningAModel forTurn;
     action toTheUp;
@@ -164,7 +163,7 @@ void MainWindow::turningUp()
 }
 
 // Function for turning down:
-void MainWindow::turningDown()
+void MainWindow::on_turn_down_clicked()
 {
     turningAModel forTurn;
     action toTheDown;
