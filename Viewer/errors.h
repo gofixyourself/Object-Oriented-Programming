@@ -1,5 +1,7 @@
-#ifndef VIEWER_ERRORS_H
-#define VIEWER_ERRORS_H
+#ifndef ERRORS_H
+#define ERRORS_H
+
+#include "QMessageBox"
 
 enum errors {
     FILE_ERROR,
@@ -10,6 +12,6 @@ enum errors {
     ALL_IS_WELL
 };
 
-void errorMessage(enum errors ourError);
+void errorMessanger(enum errors ourError);
 
-#endif //VIEWER_ERRORS_H
+#endif // ERRORS_H

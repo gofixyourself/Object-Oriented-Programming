@@ -4,9 +4,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-void MainWindow::errorMessage(enum errors ourError)
+void MainWindow::errorMessenger(enum errors ourError)
 {
-    switch(ourError) {
+    switch(ourError)
+    {
         case FILE_ERROR:
                QMessageBox::critical(NULL,QObject::tr("Error!"),tr("Error while working with file!"));
                break;
@@ -14,7 +15,7 @@ void MainWindow::errorMessage(enum errors ourError)
                QMessageBox::critical(NULL,QObject::tr("Error!"),tr("Memory allocation error!"));
                break;
         case FILE_NOT_FOUND:
-               QMessageBox::critical(NULL,QObject::tr("Error!"),tr("Memory allocation error!"));
+               QMessageBox::critical(NULL,QObject::tr("Error!"),tr("Sorry, but file not found!"));
                break;
         case INCORRECT_COMMAND:
               QMessageBox::critical(NULL,QObject::tr("Error!"),tr("Invalid command!"));
