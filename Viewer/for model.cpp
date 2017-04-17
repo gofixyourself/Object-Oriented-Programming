@@ -7,8 +7,8 @@ model  &initialiazationModel()
     ourModel.x = 0;
     ourModel.y = 0;
 
-    initialiazation(ourModel.edges);
-    initialiazation(ob.dots);
+    initializationEdge(ourModel.edges);
+    initializationDot(ourModel.dots);
 
     return ourModel;
 }
@@ -18,6 +18,6 @@ model deleteModel(model &ourModel)
     ourModel.x = 0;
     ourModel.y = 0;
 
-    clear(ourModel.dots);
-    clear(ourModel.edges);
+    clearingArrayDots(ourModel.dots);
+    clearingArrayEdges(ourModel.edges);
 }

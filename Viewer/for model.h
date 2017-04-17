@@ -1,7 +1,9 @@
-#ifndef VIEWER_FOR_MODEL_H
-#define VIEWER_FOR_MODEL_H
+#ifndef FOR_MODEL_H
+#define FOR_MODEL_H
 
-#include "strcutures of types.h"
+#include "dot.h"
+#include "edge.h"
+#include "display.h"
 
 struct model {
      int x;
@@ -11,4 +13,7 @@ struct model {
      arrayOfEdges edges;
 };
 
-#endif // VIEWER_FOR_MODEL_H
+model  &initialiazationModel();
+model deleteModel(model &ourModel);
+
+#endif // FOR_MODEL_H
