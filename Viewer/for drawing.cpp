@@ -1,43 +1,34 @@
-#include "structures for display status.h"
-#include "strcutures of types.h"
-#include "errors.h"
-#include "for model.h"
-#include "based operations for edge.h"
-#include "for scaling.h"
-
+#include "for drawing.h"
 
 void drawEdge(drawingOnDisplay &forDrawing, edge &edgeForDrawing, int height, int width, int scale)
 {
-    dot firstDot, secondDot;
+    dot firstDot = scaling(*edgeForDrawing.firstEnd, height, width, scale);
+    dot secondDot = scaling(*edgeForDrawing.secondEnd, height, width, scale);
 
-    firstDot = scaling(*edgeForDrawing.firstEnd, height, width, scale);
-    secondDot = scaling(*edgeForDrawing.secondEnd, height, width, scale);
-
-    forDrawing.newPicture->createEdge(firstDot.x, firstDot.z, secondDot.x, secondDot.z, forDrawing.pen);
+    forDrawing.newPicture->addLine(firstDot.x, firstDot.z, secondDot.x, secondDot.z, forDrawing.pen);
 }
 
-
+// Function to draw a model:
 int drawing(model &ourModel, drawingAModel &forDrawing)
 {
     drawingOnDisplay objectForDrawing;
     edge buffer;
-    int checkError = 0;
 
-    checkError = initializationImage(objectForDrawing, forDrawing.gV);
+    int checkError = initializationImage(objectForDrawing, forDrawing.pen);
 
     if (checkError)
         return checkError;
 
-    for (int i = 0; (i < (ourModel.edges.index)) && (!checkError); i++)
+    for (int i = 0; (i < (ourModel.edges.index)) && !checkError; i++)
     {
-        checkError = popEdge(buffer, ourModel.edges, index);
+        checkError = popEdge(buffer, ourModel.edges, i);
 
         if (!checkError)
             drawEdge(objectForDrawing, buffer, forDrawing.height, forDrawing.width, forDrawing.scale);
     }
 
     if (!checkError)
-        settingOnDisplay(forDrawing.gV, objectForDrawing);
+        settingOnDisplay(forDrawing.pen, objectForDrawing);
     else
         deletingScene(objectForDrawing);
 
