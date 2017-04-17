@@ -6,16 +6,16 @@ int forHorizontalRotation(arrayOfDots ourArray, turningAModel angle)
     int forError = 0;
 
     for (int i = 0; (i < ourArray.index) && (!forError); i++)
-        forError = dotTurnHorizontal(ourArray, i, angle.displacement);
+        forError = dotTurnHorizontal(ourArray, i, angle.coefficient);
 
     return forError;
 }
 
 int dotTurnHorizontal(arrayOfDots ourArray, int index, double displacement)
 {
-    horizontalRotation(ourArray.array[index], displacement);
+    horizontalRotationDot(ourArray.array[index], displacement);
 
-    return NONE;
+    return ALL_IS_WELL;
 }
 
 void horizontalRotationDot(dot &ourDot, double angle)
@@ -35,8 +35,7 @@ int forVerticalRotation(arrayOfDots ourArray, turningAModel angle)
     int forError = 0;
 
     for (int i = 0; (i < ourArray.index) && (!forError); i++)
-
-        forError = dotTurnVertical(ourArray, index, angle.displacement);
+        forError = dotTurnVertical(ourArray, i, angle.coefficient);
 
     return forError;
 }
@@ -45,7 +44,7 @@ int dotTurnVertical(arrayOfDots ourArray, int index, double angle)
 {
     verticalRotationDot(ourArray.array[index], angle);
 
-    return NONE;
+    return ALL_IS_WELL;
 }
 
 void verticalRotationDot(dot &ourDot, double angle)
@@ -53,8 +52,8 @@ void verticalRotationDot(dot &ourDot, double angle)
     double degreeToRadian = angle * PI_CONST / 180;
     double buffer = ourDot.y;
 
-    ourDot.x = pt.x;
+    ourDot.x = ourDot.x;
     ourDot.y = buffer * (cos(degreeToRadian)) - ourDot.z * (sin(degreeToRadian));
-    ourDot.z = buffer * (sin(degreeToRadian)) + ourDot.z * (cos(degreeToRadian);
+    ourDot.z = buffer * (sin(degreeToRadian)) + ourDot.z * (cos(degreeToRadian));
 }
 // -------------------------------------------------------------------------------
