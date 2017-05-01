@@ -43,10 +43,20 @@ public:
     const char *what() {
         return "You divide by zero.";
     }
+};
+
+class MultiplicationError: public SomeError {
+public:
+    const char *what() {
+        return "The operation of multiplication a mathematical vector is only possible for three dimensions.";
+    }
+};
+
+class DifferentSizesError: public SomeError {
+public:
+    const char *what() {
+        return "You have entered different sizes of vectors. You can't do it."
+    }
 }
-
-
-
-
 
 #endif // ERRORS_HPP
