@@ -29,6 +29,20 @@ public:
     const char *what() {
         return "You did't enter anything. Please, try again.";
     }
+};
+
+class IteratorError: public SomeError {
+public:
+    const char *what() {
+        return "Some problems with iterators.";
+    }
+};
+
+class DivideZeroError: public SomeError {
+public:
+    const char *what() {
+        return "You divide by zero.";
+    }
 }
 
 
