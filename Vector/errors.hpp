@@ -17,12 +17,19 @@ public:
     }
 };
 
-class InputSizeError: public SomeError {
+class WrongInputError: public SomeError {
 public:
     const char *what() {
-        return "You entered a number less than zero. Try again.";
+        return "You entered a number less than zero. Please, try again.";
     }
 };
+
+class EmptyInputError: public SomeError {
+public:
+    const char *what() {
+        return "You did't enter anything. Please, try again.";
+    }
+}
 
 
 
