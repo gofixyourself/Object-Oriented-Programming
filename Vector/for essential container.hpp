@@ -5,11 +5,11 @@
 
 namespace mathvector {
     namespace essential {
-        EssentialContainer::EssentialContainer(): content(0) {}
+        EssentialContainer::essential_container(): content(0) {}
 
-        EssentialContainer::EssentialContainer(size_t extent): content(extent) {}
+        EssentialContainer::essential_container(size_t extent): content(extent) {}
 
-        EssentialContainer::~EssentialContainer() {
+        EssentialContainer::~essential_container() {
             extent = 0;
         }
 

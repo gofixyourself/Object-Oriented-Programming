@@ -31,4 +31,5 @@ namespace mathvector {
         };
     }
 }
+
 #endif // ESSENTIAL_ITERATOR_HPP
