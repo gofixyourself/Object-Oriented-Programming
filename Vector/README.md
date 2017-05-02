@@ -1,3 +1,3 @@
 # Lab №2
 
-### Class templates. Vector of templates class
+### Class templates. Vector template class
