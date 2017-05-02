@@ -10,10 +10,10 @@ namespace mathvector {
         class MathematicalVector;
 
         template<class T>
-        class VectorIterator;
+        class EssentialIterator;
 
         template<class T>
-        class VectorContainer;
+        class EssentialContainer;
     }
     template <class T>
     class ConstIterator;
