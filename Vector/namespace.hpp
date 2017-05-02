@@ -7,12 +7,13 @@
 namespace mathvector {
     namespace essential {
         template<class T>
-        class VectorIterator;
-
-        class VectorContainer;
+        class MathematicalVector;
 
         template<class T>
-        class MathematicalVector;
+        class VectorIterator;
+
+        template<class T>
+        class VectorContainer;
     }
     template <class T>
     class ConstIterator;
