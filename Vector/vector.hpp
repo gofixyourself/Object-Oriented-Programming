@@ -12,7 +12,7 @@
 #include "essential container.hpp"
 #include "nonconst iterator.hpp"
 #include "const iterator.hpp"
-
+#include "for vector.hpp"
 
 namespace mathvector {
     namespace essential {
@@ -73,7 +73,7 @@ namespace mathvector {
             MathematicalVector operator * (const MathematicalVector &vector);
             MathematicalVector operator ^ (const MathematicalVector &vector);
             MathematicalVector operator / (const T &number);
-            
+
             MathematicalVector &operator += (const MathematicalVector &vector);
             MathematicalVector &operator -= (const MathematicalVector &vector);
             MathematicalVector &operator *= (const T &number);
@@ -85,7 +85,29 @@ namespace mathvector {
 
             bool is_ort_two(const MathematicalVector &vector);
             bool is_ort_three(const MathematicalVector &first_vector, const MathematicalVector &second_vector) const;
-        }
+
+            template <class T_comp>
+            friend bool operator == (const MathematicalVector<T_comp> &first_vector, const MathematicalVector<T_comp> &second_vector);
+            template <class T_comp>
+            friend bool operator!=(const MathematicalVector<T_comp> &first_vector, const MathematicalVector<T_comp> &second_vector);
+            template <class T_comp>
+            friend bool operator<(const MathematicalVector<T_comp> &first_vector, const MathematicalVector<T_comp> &second_vector);
+            template <class T_comp>
+            friend bool operator<=(const MathematicalVector<T_comp> &first_vector, const MathematicalVector<T_comp> &second_vector);
+            template <class T_comp>
+            friend bool operator>(const MathematicalVector<T_comp> &first_vector, const MathematicalVector<T_comp> &second_vector);
+            template <class T_comp>
+            friend bool operator>=(const MathematicalVector<T_comp> &first_vector, const MathematicalVector<T_comp> &second_vector);
+
+            template <class T_comp>
+            friend std::ostream& operator<<(std::ostream &stream, const MathematicalVector<T_comp> &vector);
+
+        private:
+            size_t size;
+            T* information;
+
+            void resize();
+        };
     }
 }
 
