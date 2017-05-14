@@ -5,19 +5,18 @@
 #include "for essential container.hpp"
 
 namespace mathvector {
-    namespace essential {
-        class EssentialContainer {
-        public:
-            explicit essential_container();
-            explicit essential_container(size_t extent);
-            virtual ~essential_container();
+    class EssentialContainer {
+    public:
+        EssentialContainer();
+        explicit EssentialContainer(size_t initial_size);
+        virtual ~EssentialContainer();
 
-            bool check_is_empty() const;
-            size_t size() const;
-        protected:
-            size_t content;
-        };
-    }
+        bool check_is_empty() const;
+        size_t check_size() const;
+
+    protected:
+        size_t end_size;
+    };
 }
 
 #endif // ESSENTIAL_CONTAINER_HPP

@@ -4,22 +4,20 @@
 #include "essential container.hpp"
 
 namespace mathvector {
-    namespace essential {
-        EssentialContainer::essential_container(): content(0) {}
+    EssentialContainer::EssentialContainer(): end_size(0) {}
 
-        EssentialContainer::essential_container(size_t extent): content(extent) {}
+    EssentialContainer::EssentialContainer(size_t initial_size): content(initial_size) {}
 
-        EssentialContainer::~essential_container() {
-            extent = 0;
-        }
+    EssentialContainer::~EssentialContainer() {
+        end_size = 0;
+    }
 
-        bool EssentialContainer::check_is_empty() const {
-            return extent == 0;
-        }
+    bool EssentialContainer::check_is_empty() const {
+        return initial_size == 0;
+    }
 
-        size_t EssentialContainer::size() const {
-           return extent;
-       }
+    size_t EssentialContainer::check_size() const {
+           return initial_size;
     }
 }
 
