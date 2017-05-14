@@ -15,34 +15,32 @@
 #include "for vector.hpp"
 
 namespace mathvector {
-    namespace essential {
-        template<class T>
-        class MathematicalVector: public EssentialContainer {
-            const size_t coefficient = 4;
+    template<class T>
+    class MathematicalVector: public EssentialContainer {
+        сonst size_t coefficient = 4;
 
-        public:
-            typedef ConstIterator<T> for_const;
-            typedef NonConstantIterator<T> for_nonconst;
+    public:
+        typedef ConstIterator<T> for_const;
+        typedef NonConstantIterator<T> for_nonconst;
 
-            explicit mathematical_vector();
-            explicit mathematical_vector(size_t extent);
-            explicit mathematical_vector(size_t extent, const T &value);
+        MathematicalVector();
+        explicit MathematicalVector(size_t initial_size);
+        MathematicalVector(size_t initial_size, const T &value);
 
-            explicit mathematical_vector(const MathematicalVector &element);
-            explicit mathematical_vector(MathematicalVector &element);
-            vector(MathematicalVector &&element);
-            vector(std::initializer_list<T> values);
+        explicit MathematicalVector(const MathematicalVector &element);
+        MathematicalVector(MathematicalVector &&element);
+        MathematicalVector(std::initializer_list<T> values);
 
-            MathematicalVector &operator = (const MathematicalVector &element);
-            MathematicalVector &operator = (MathematicalVector &&element);
-            MathematicalVector &operator = (std::initializer_list<T> values);
+        MathematicalVector<T> &operator = (const vector<T> &element);
+        MathematicalVector<T> &operator = (MathematicalVector<T> &&element);
+        MathematicalVector<T> &operator = (std::initializer_list<T> values);
 
-            virtual ~vector();
+        virtual ~MathematicalVector();
 
-            T &location(size_t place);
-            const T &location(const size_t place) const;
-            T &operator[](size_t index);
-            const T& operator[](const size_t index) const;
+        T &location(size_t place);
+        const T &location(const size_t place) const;
+        T &operator[](size_t index);
+        const T& operator[](const size_t index) const;
 
             bool insert(const T &value);
             bool remove(const T &value);
