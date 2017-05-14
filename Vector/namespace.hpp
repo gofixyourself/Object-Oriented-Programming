@@ -5,16 +5,15 @@
 #include <iostream>
 
 namespace mathvector {
-    namespace essential {
-        template<class T>
-        class MathematicalVector;
+    template<class T>
+    class MathematicalVector;
 
-        template<class T>
-        class EssentialIterator;
+    template<class T>
+    class EssentialIterator;
 
-        template<class T>
-        class EssentialContainer;
-    }
+    template<class T>
+    class EssentialContainer;
+    
     template <class T>
     class ConstIterator;
 
