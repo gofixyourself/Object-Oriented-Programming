@@ -11,14 +11,14 @@ namespace mathvector {
     template<class T>
     class EssentialIterator;
 
-    template<class T>
-    class EssentialContainer;
-    
     template <class T>
     class ConstIterator;
 
     template <class T>
     class NonConstantIterator;
+
+    template<class T>
+    class EssentialContainer;
 }
 
 #endif // NAMESPACE_HPP
