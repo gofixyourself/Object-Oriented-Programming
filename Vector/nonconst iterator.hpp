@@ -5,17 +5,19 @@
 
 namespace mathvector {
     template <class T>
-    class NonConstantIterator : public essential::EssentialIterator<T> {
+    class NonConstantIterator : public mathvector::EssentialIterator<T> {
     public:
-        nonconst_iterator(const NonConstantIterator &element);
+        NonConstantIterator(const NonConstantIterator &element);
 
         T &operator*() const;
+        const T& operator*() const;
         T *operator->() const;
+        const T* operator->() const;
 
-        friend class essential::MathematicalVector<T>;
+        friend class mathvector::MathematicalVector<T>;
 
     private:
-        nonconst_iterator(T *pointer);
+        NonConstantIterator(T *pointer);
     };
 }
 
