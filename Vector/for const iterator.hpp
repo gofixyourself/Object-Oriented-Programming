@@ -16,12 +16,12 @@ namespace mathvector {
     }
 
     template<class T>
-    ConstIterator<T>::const_iterator(T *pointer)
-        :essential::EssentialIterator<T>(pointer) {}
+    ConstIterator<T>::ConstIterator(T *pointer)
+        :mathvector::EssentialIterator<T>(pointer) {}
 
     template<class T>
-    ConstIterator<T>::const_iterator(const ConstIterator &element)
-        :essential::EssentialIterator<T>(element.pointer) {}
+    ConstIterator<T>::ConstIterator(const ConstIterator &element)
+        :mathvector::EssentialIterator<T>(element.pointer) {}
 }
 
 #endif // FOR_CONST_ITERATOR_HPP

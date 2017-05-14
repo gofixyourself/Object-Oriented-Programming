@@ -6,17 +6,17 @@
 
 namespace mathvector {
     template <class T>
-    class ConstIterator : public essential::EssentialIterator<T> {
+    class ConstIterator : public mathvector::EssentialIterator<T> {
     public:
-        const_iterator(const ConstIterator &element);
+        ConstIterator(const ConstIterator &element);
 
-        T &operator*() const;
-        T *operator->() const;
+        const T &operator*() const;
+        const T *operator->() const;
 
-        friend class essential::MathematicalVector<T>;
+        friend class mathvector::MathematicalVector<T>;
 
     private:
-        const_iterator(T *pointer);
+        ConstIterator(T *pointer);
     };
 }
 #endif // CONST_ITERATOR_HPP
