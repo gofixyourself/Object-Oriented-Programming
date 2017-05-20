@@ -9,9 +9,9 @@ namespace mathvector {
     public:
         NonConstantIterator(const NonConstantIterator &element);
 
-        T &operator*() const;
+        T &operator*();
         const T& operator*() const;
-        T *operator->() const;
+        T *operator->();
         const T* operator->() const;
 
         friend class mathvector::MathematicalVector<T>;
