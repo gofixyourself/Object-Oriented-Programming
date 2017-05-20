@@ -7,7 +7,8 @@
 | List of Labs  |     Stage     |
 | ------------- |:-------------:|
 |[Viewer](https://github.com/gofixyourself/Object-Oriented-Programming/tree/master/Viewer)|:white_check_mark:|
-|[Vector](https://github.com/gofixyourself/Object-Oriented-Programming/tree/Vector/Vector)|:soon:|
+|[Vector](https://github.com/gofixyourself/Object-Oriented-Programming/tree/master/Vector)|:white_check_mark:|
+|[Elevator](https://github.com/gofixyourself/Object-Oriented-Programming/tree/Elevator/Elevator)|:soon:|
 
 ## Legend:
 
