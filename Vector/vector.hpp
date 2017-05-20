@@ -16,8 +16,8 @@
 
 namespace mathvector {
     template<class T>
-    class MathematicalVector: public EssentialContainer {
-        сonst size_t coefficient = 4;
+    class MathematicalVector : public EssentialContainer {
+        const size_t coefficient = 4;
 
     public:
         typedef ConstIterator<T> for_const;
@@ -31,7 +31,7 @@ namespace mathvector {
         MathematicalVector(MathematicalVector &&element);
         MathematicalVector(std::initializer_list<T> values);
 
-        MathematicalVector<T> &operator = (const vector<T> &element);
+        MathematicalVector<T> &operator = (const MathematicalVector<T> &element);
         MathematicalVector<T> &operator = (MathematicalVector<T> &&element);
         MathematicalVector<T> &operator = (std::initializer_list<T> values);
 
@@ -45,17 +45,17 @@ namespace mathvector {
         bool contains(const T& value) const;
         int index_element(const T& value) const;
 
-        for_nonconst begin_nonconst();
-        for_nonconst end_nonconst();
+        for_nonconst begin();
+        for_nonconst end();
 
         for_const begin_const() const;
         for_const end_const() const;
 
-        for_nonconst right_begin_nonconst();
-        for_nonconst right_end_nonconst();
+        for_nonconst range_begin_nonconst();
+        for_nonconst range_end_nonconst();
 
-        for_const right_begin_const() const;
-        for_const right_end_const() const;
+        for_const range_begin_const() const;
+        for_const range_end_const() const;
 
         void clear();
         void swap(MathematicalVector &vector);
@@ -66,7 +66,7 @@ namespace mathvector {
         MathematicalVector<T> vector_multiplication(const MathematicalVector<T> &vector);
         T scalar_multiplication(const MathematicalVector<T> &vector);
 
-        MathematicalVector<T> operator + (const MathematicalVector<T> &vector)
+        MathematicalVector<T> operator + (const MathematicalVector<T> &vector);
         MathematicalVector<T> operator - (const MathematicalVector<T> &vector);
         MathematicalVector<T> operator * (const T &number_value);
         MathematicalVector<T> operator * (const MathematicalVector<T> &vector);
@@ -78,20 +78,20 @@ namespace mathvector {
         T operator ^ (const MathematicalVector<T> &vector);
 
         bool is_orthogonal(const MathematicalVector<T> &vector);
-        bool is_сollinear(const MathematicalVector<T> &vector) const;
+        bool is_collinear(const MathematicalVector<T> &vector) const;
 
         template <class T_compare>
         friend bool operator == (const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
         template <class T_compare>
-        friend bool operator!=(const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
+        friend bool operator != (const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
         template <class T_compare>
-        friend bool operator<(const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
+        friend bool operator < (const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
         template <class T_compare>
-        friend bool operator<=(const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
+        friend bool operator <= (const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
         template <class T_compare>
-        friend bool operator>(const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
+        friend bool operator > (const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
         template <class T_compare>
-        friend bool operator>=(const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
+        friend bool operator >= (const MathematicalVector<T_compare> &first_vector, const MathematicalVector<T_compare> &second_vector);
 
         template <class T_compare>
         friend std::ostream& operator<<(std::ostream &stream, const MathematicalVector<T_compare> &vector);
@@ -104,4 +104,4 @@ namespace mathvector {
     };
 }
 
-#endif VECTOR_HPP
+#endif // VECTOR_HPP
