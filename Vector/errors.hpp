@@ -2,61 +2,39 @@
 #define ERRORS_HPP
 
 #include <exception>
+##include <string>
 
 class SomeError : public std::exception {
+protected:
+    std::string error_message;
+
 public:
-    virtual const char *what() {
-        return "Ooops!";
+    SomeError() = default;
+
+    explicit SomeError(const char* error_message) {
+        this->error_message = error_message;
+    }
+
+    explicit SomeError(std::string& error_message) {
+        this->error_message = error_message;
     }
 };
 
 class MemoryError : public SomeError {
 public:
-    const char *what() {
-        return "Problems with memory allocation.";
+    MemoryError() = default;
+
+    explicit MemoryError(const char* error_message)
+            : SomeError(error_message) {
+    }
+
+    explicit MemoryError(std::string& error_message)
+            : SomeError(error_message) {
+    }
+
+    virtual const char* what() const noexcept {
+        return error_message.empty() ? "Something went wrong!" : error_message.c_str();
     }
 };
-
-class WrongInputError: public SomeError {
-public:
-    const char *what() {
-        return "You entered a number less than zero. Please, try again.";
-    }
-};
-
-class EmptyInputError: public SomeError {
-public:
-    const char *what() {
-        return "You did't enter anything. Please, try again.";
-    }
-};
-
-class IteratorError: public SomeError {
-public:
-    const char *what() {
-        return "Some problems with iterators.";
-    }
-};
-
-class DivideZeroError: public SomeError {
-public:
-    const char *what() {
-        return "You divide by zero.";
-    }
-};
-
-class MultiplicationError: public SomeError {
-public:
-    const char *what() {
-        return "The operation of multiplication a mathematical vector is only possible for three dimensions.";
-    }
-};
-
-class DifferentSizesError: public SomeError {
-public:
-    const char *what() {
-        return "You have entered different sizes of vectors. You can't do it."
-    }
-}
 
 #endif // ERRORS_HPP
