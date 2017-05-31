@@ -10,3 +10,6 @@
 
 ## Interaction model
 ![](https://cloud.githubusercontent.com/assets/20731675/26631697/ef88f832-4614-11e7-85c0-b363f47b724e.png)
+
+## Flow diagram of these actions for Timer:
+![](https://cloud.githubusercontent.com/assets/20731675/26632657/7e8700ac-4619-11e7-879d-f085791bf306.png)
