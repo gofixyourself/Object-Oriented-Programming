@@ -1,9 +1,5 @@
 # Lab №5
 
->For example I chose a toaster model
-
-`TODO: redraw arrows in Interaction model and in Interaction model`
-
 ## Information model
 ![](https://cloud.githubusercontent.com/assets/20731675/26600589/4dc382fe-4585-11e7-8397-db04c54717e9.png)
 
@@ -13,7 +9,7 @@
 ## Interaction model
 ![](https://cloud.githubusercontent.com/assets/20731675/26631697/ef88f832-4614-11e7-85c0-b363f47b724e.png)
 
-## Interaction model:
+## Flow diagram of these actions:
 ![](https://cloud.githubusercontent.com/assets/20731675/26632657/7e8700ac-4619-11e7-879d-f085791bf306.png)
 ![](https://cloud.githubusercontent.com/assets/20731675/26634190/7fda3b40-461e-11e7-8af4-a3cb09c2db74.png)
 
