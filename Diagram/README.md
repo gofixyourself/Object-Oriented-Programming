@@ -14,4 +14,4 @@
 ![](https://cloud.githubusercontent.com/assets/20731675/26634190/7fda3b40-461e-11e7-8af4-a3cb09c2db74.png)
 
 ## Access model:
-![](https://cloud.githubusercontent.com/assets/20731675/26634998/009d69d0-4621-11e7-8936-56c34e03f36b.png)
+![](https://cloud.githubusercontent.com/assets/20731675/26760960/1fbdc67e-492e-11e7-9808-96c2e628305f.png)
