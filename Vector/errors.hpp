@@ -2,7 +2,7 @@
 #define ERRORS_HPP
 
 #include <exception>
-##include <string>
+#include <string>
 
 class SomeError : public std::exception {
 protected:
