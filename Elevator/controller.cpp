@@ -12,3 +12,10 @@ Controller::Controller(QWidget *parent) : QWidget(parent) {
         QObject::connect(buttons[i], SIGNAL(changeFloor(int)), this, SLOT(changeToAddNewFloor(int)));
     }
 }
+
+Controller::~CController() {
+    for (int i = 0; i < FLOOR_NUMBERS; i++)
+        delete buttons[i];
+
+    delete layout;
+}
