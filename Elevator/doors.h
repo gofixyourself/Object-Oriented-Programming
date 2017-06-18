@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#include "time.h"
+#include "times.h"
 
 class Doors : public QObject {
     Q_OBJECT
@@ -16,8 +16,8 @@ class Doors : public QObject {
 public:
     Doors();
 signals:
-    void doorIsClosed();
-    void doorIsOpening();
+    void doorsIsClosed();
+    void doorsIsOpening();
 public slots:
     void changeToOpen();
     void changeToClose();

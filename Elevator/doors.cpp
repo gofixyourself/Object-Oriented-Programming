@@ -3,7 +3,7 @@
 Doors::Doors() {
     current_state = CLOSE;
 
-    QObject::connect(this, SIGNAL(doorIsOpening()), this, SLOT(changeToOpening()));
+    QObject::connect(this, SIGNAL(doorsIsOpening()), this, SLOT(changeToOpening()));
     QObject::connect(&timer_for_open, SIGNAL(timeout()), this, SLOT(changeToOpen()));
     QObject::connect(&timer_for_close, SIGNAL(timeout()), this, SLOT(changeToClose()));
     QObject::connect(&timer_for_wait, SIGNAL(timeout()), this, SLOT(changeToClosing()));
@@ -19,7 +19,7 @@ void Doors::changeToOpen() {
 
 void Doors::changeToOpening() {
     if (current_state == CLOSE) {
-        state = OPENING;
+        current_state = OPENING;
         qDebug() << "✨ Doors are opening! Wait a bit! ✨";
         timer_for_open.start(TIME_DOOR);
     }
@@ -37,7 +37,7 @@ void Doors::changeToClose() {
     if (current_state == CLOSING) {
         current_state = CLOSE;
         qDebug() << "❌ Doors are closed! ❌";
-        emit doorIsClosed();
+        emit doorsIsClosed();
     }
 }
 
