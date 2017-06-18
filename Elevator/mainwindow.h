@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QVBoxLayout>
+
+#include "elevator.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +20,7 @@ public:
 private:
     Ui::MainWindow *ui;
     QVBoxLayout *layout;
+    Elevator our_elevator;
 };
 
 #endif // MAINWINDOW_H

@@ -1,5 +1,3 @@
-#include <QBoxLayout>
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -9,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     layout = new QVBoxLayout;
     ui->centralWidget->setLayout(layout);
-    layout->addWidget(lift.GetWidget());
+    layout->addWidget(our_elevator.GetWidget());
 }
 
 MainWindow::~MainWindow() {
