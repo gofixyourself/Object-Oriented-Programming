@@ -20,13 +20,13 @@ void Doors::changeToOpen() {
 void Doors::changeToOpening() {
     if (current_state == CLOSE) {
         state = OPENING;
-        qDebug() << "✨ Doors is opening! Wait a bit! ✨";
+        qDebug() << "✨ Doors are opening! Wait a bit! ✨";
         timer_for_open.start(TIME_DOOR);
     }
 
     if (current_state == CLOSING) {
         current_state = OPENING;
-        qDebug() << "✨ Doors is opening! Wait a bit! ✨";
+        qDebug() << "✨ Doors are opening! Wait a bit! ✨";
         int time = timer_for_close.remainingTime();
         timer_for_close.stop();
         timer_for_open.start(TIME_DOOR - time);
@@ -48,4 +48,3 @@ void Doors::changeToClosing() {
         timer_for_close.start(TIME_DOOR);
     }
 }
-
