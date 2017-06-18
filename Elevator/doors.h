@@ -7,7 +7,7 @@
 
 class Doors : public QObject {
     Q_OBJECT
-    enum StateDoor {
+    enum doors_states {
         OPEN,
         OPENING,
         CLOSE,
@@ -16,13 +16,20 @@ class Doors : public QObject {
 public:
     Doors();
 signals:
-
+    void doorIsClosed();
+    void doorIsOpening();
 public slots:
-
+    void changeToOpen();
+    void changeToClose();
 private slots:
-
+    void changeToOpening();
+    void changeToClosing();
 private:
+    doors_states current_state;
 
+    QTimer timer_for_open;
+    QTimer timer_for_close;
+    QTimer timer_for_wait;
 };
 
 #endif // DOORS_H
