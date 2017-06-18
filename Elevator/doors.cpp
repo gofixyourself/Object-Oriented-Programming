@@ -12,7 +12,7 @@ Doors::Doors() {
 void Doors::changeToOpen() {
     if (current_state == OPENING) {
         current_state = OPEN;
-        qDebug() << "✨ Doors opened! I ask to go inside the elevator! ✨";
+        qDebug() << "✨ Doors are opened! I ask to go inside the elevator! ✨";
         timer_for_wait.start(TIME_DOOR_WAIT);
     }
 }
@@ -34,10 +34,10 @@ void Doors::changeToOpening() {
 }
 
 void Doors::changeToClose() {
-    if(state == CLOSING) {
-        state = CLOSE;
-        qDebug() << "doors closed";
-        emit DoorIsClosed();
+    if (current_state == CLOSING) {
+        current_state = CLOSE;
+        qDebug() << "❌ Doors are closed! ❌";
+        emit doorIsClosed();
     }
 }
 
