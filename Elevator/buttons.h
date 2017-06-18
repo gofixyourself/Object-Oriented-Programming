@@ -7,7 +7,7 @@
 class Buttons : public QPushButton  {
     Q_OBJECT
     // Button states:
-    enum states {
+    enum buttons_states {
         NOTPRESSED,
         PRESSED
     };
@@ -22,7 +22,7 @@ signals:
     void resetButton();
     void changeFloor(int floor);
 private:
-    states current_state;
+    buttons_states current_state;
     int floor;
 };
 
