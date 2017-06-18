@@ -25,3 +25,17 @@ void Controller::changeToCurrentFloor(int floor, motion new_motion) {
     current_motion = new_motion;
 }
 
+void Controller::changeToNeededFloor(int floor, motion new_motion) {
+    if (current_state == BUSY) {
+        qDebug() << "⏹ Stoped on floor:" << floor << "⏹";
+        current_floor = floor;
+        current_motion = new_motion;
+        needed_floors[floor] = false;
+        emit buttons[floor]->resetButton();
+        if (getNewNeededFloor(floor))
+            emit SendNewNeededFloor(floor);
+        else
+            current_state = NOTHING;
+    }
+}
+
