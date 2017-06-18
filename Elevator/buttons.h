@@ -7,13 +7,24 @@
 
 class Buttons : public QPushButton  {
     Q_OBJECT
-    enum ButtonStates {
+    // Button states:
+    enum states {
         NOTPRESSED,
         PRESSED
     };
 
 public:
-    Buttons();
+    explicit Buttons(QWidget *parent = 0);
+    virtual ~Buttons();
+
+    void set_floor(int new_floor);
+public slots:
+
+signals:
+
+private:
+    states current_state;
+    int floor;
 };
 
 #endif // BUTTONS_H
