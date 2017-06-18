@@ -4,7 +4,7 @@
 #include <QObject>
 
 #include "doors.h"
-#include "time.h"
+#include "times.h"
 
 class Cabin : public QObject{
     Q_OBJECT
@@ -16,8 +16,8 @@ class Cabin : public QObject{
 public:
     explicit Cabin(QObject *parent = 0);
 signals:
-    void previousFloor(int floor, motion motion);
-    void selectedFloor(int floor, motion motion);
+    void previousFloor(int floor, motion new_motion);
+    void selectedFloor(int floor, motion new_motion);
 public slots:
     void changeToMoving();
     void changeToFree();

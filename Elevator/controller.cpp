@@ -4,7 +4,7 @@ Controller::Controller(QWidget *parent) : QWidget(parent) {
     layout = new QVBoxLayout;
     this->setLayout(layout);
     for (int i = 0; i < FLOOR_NUMBERS; i++) {
-        buttons[i] = new Button;
+        buttons[i] = new Buttons;
         layout->addWidget(dynamic_cast<QPushButton*>(buttons[i]));
         buttons[i]->setText(QString::number(i));
         buttons[i]->set_floor(i);
@@ -13,8 +13,8 @@ Controller::Controller(QWidget *parent) : QWidget(parent) {
     }
 }
 
-Controller::~CController() {
-    for (int i = 0; i < FLOOR_NUMBERS; i++)
+Controller::~Controller() {
+    for (int i = 1; i < FLOOR_NUMBERS; i++)
         delete buttons[i];
 
     delete layout;

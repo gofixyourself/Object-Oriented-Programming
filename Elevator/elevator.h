@@ -6,10 +6,10 @@
 #include "controller.h"
 #include "cabin.h"
 
-class Lift : public QObject {
+class Elevator : public QObject {
     Q_OBJECT
 public:
-    explicit Lift(QObject *parent = 0);
+    explicit Elevator(QObject *parent = 0);
     QWidget* GetWidget();
 signals:
 

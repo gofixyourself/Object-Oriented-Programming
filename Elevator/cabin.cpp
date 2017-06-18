@@ -6,7 +6,7 @@ Cabin::Cabin(QObject *parent) {
     needed_floor = 0;
 
     current_motion = STOPPED;
-    QObject::connect(&doors, SIGNAL(doorIsClosed()), this, SLOT(changeToMoving()));
+    QObject::connect(&doors, SIGNAL(doorsIsClosed()), this, SLOT(changeToMoving()));
     QObject::connect(&timer_for_motion, SIGNAL(timeout()), this, SLOT(changeToMoving()));
     QObject::connect(this, SIGNAL(changeToArrivedAtFloor()), this, SLOT(changeToFree()));
     QObject::connect(this, SIGNAL(changeToMove()), this, SLOT(changeToMoving()));
@@ -26,7 +26,7 @@ void Cabin::changeToMoving() {
                 current_floor += 1;
             } else {
                 current_motion = DOWN;
-                currentFloor -= 1;
+                current_floor -= 1;
             }
         }
     }
@@ -49,7 +49,7 @@ void Cabin::changeToBusy(int floor) {
         if (current_floor < needed_floor)
             current_motion = UP;
         else
-            current_floor = DOWN;
+            current_motion = DOWN;
 
         emit changeToMove();
     }

@@ -20,8 +20,8 @@ public:
 signals:
     void SendNewNeededFloor(int new_floor);
 public slots:
-    void changeToCurrentFloor(int floor, motion motion);
-    void slotAchieveFloor(int floor, motion motion);
+    void changeToCurrentFloor(int floor, motion new_motion);
+    void changeToNeededFloor(int floor, motion new_motion);
 private slots:
     void changeToAddNewFloor(int new_floor);
 private:
