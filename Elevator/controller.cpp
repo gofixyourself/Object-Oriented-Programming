@@ -19,3 +19,9 @@ Controller::~CController() {
 
     delete layout;
 }
+
+void Controller::changeToCurrentFloor(int floor, motion new_motion) {
+    current_floor = floor;
+    current_motion = new_motion;
+}
+
