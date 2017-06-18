@@ -39,3 +39,11 @@ void Controller::changeToNeededFloor(int floor, motion new_motion) {
     }
 }
 
+void Controller::changeToAddNewFloor(int floor) {
+    current_state = BUSY;
+    needed_floors[floor] = true;
+    getNewNeededFloor(floor);
+    emit SendNewNeededFloor(floor);
+}
+
+
