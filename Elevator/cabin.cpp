@@ -30,5 +30,30 @@ void Cabin::changeToMoving() {
             }
         }
     }
-
 }
+
+void Cabin::changeToFree() {
+    current_state = FREE;
+    timer_for_motion.stop();
+    emit selectedFloor(current_floor, current_motion);
+    emit doors.doorsIsOpening();
+}
+
+void Cabin::changeToBusy(int floor) {
+    current_state = BUSY;
+    needed_floor= floor;
+
+    if (current_floor == needed_floor)
+        emit changeToArrivedAtFloor();
+    else {
+        if (current_floor < needed_floor)
+            current_motion = UP;
+        else
+            current_floor = DOWN;
+
+        emit changeToMove();
+    }
+}
+
+
+
