@@ -46,4 +46,26 @@ void Controller::changeToAddNewFloor(int floor) {
     emit SendNewNeededFloor(floor);
 }
 
+bool Controller::getNewNeededFloor(int &new_floor) {
+    int step = current_motion == 0 ? -1 : current_motion;
+    for (int i = current_floor; i < FLOOR_NUMBERS && i >= 0; i += step) {
+        if (needed_floors[i])  {
+            new_floor = i;
+            return true;
+        }
+    }
+
+    step *= -1;
+    for (int i = current_floor; i < FLOOR_NUMBERS && i >= 0; i += step) {
+        if (needed_floors[i])  {
+            new_floor = i;
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
 
