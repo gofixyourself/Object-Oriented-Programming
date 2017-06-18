@@ -12,16 +12,16 @@ class Buttons : public QPushButton  {
         NOTPRESSED,
         PRESSED
     };
-
 public:
     explicit Buttons(QWidget *parent = 0);
     virtual ~Buttons();
-
     void set_floor(int new_floor);
 public slots:
-
+    void changeToPressed();
+    void changeToNotPressed();
 signals:
-
+    void resetButton();
+    void changeFloor(int floor);
 private:
     states current_state;
     int floor;
