@@ -41,3 +41,11 @@ void Doors::changeToClose() {
     }
 }
 
+void Doors::changeToClosing() {
+    if (current_state == OPEN) {
+        current_state = CLOSING;
+        qDebug() << "❗️Look out! Doors are closing! ❗️";
+        timer_for_close.start(TIME_DOOR);
+    }
+}
+
