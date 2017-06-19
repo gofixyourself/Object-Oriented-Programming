@@ -2,7 +2,7 @@
 
 Cabin::Cabin(QObject *parent) {
     current_state = FREE;
-    current_floor = 0;
+    current_floor = 1;
     needed_floor = 0;
 
     current_motion = STOPPED;
