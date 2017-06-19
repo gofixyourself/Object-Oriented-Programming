@@ -8,7 +8,7 @@
 | ------------- |:-------------:|
 |[Viewer](https://github.com/gofixyourself/Object-Oriented-Programming/tree/master/Viewer)|:white_check_mark:|
 |[Vector](https://github.com/gofixyourself/Object-Oriented-Programming/tree/master/Vector)|:white_check_mark:|
-|[Elevator](https://github.com/gofixyourself/Object-Oriented-Programming/tree/Elevator/Elevator)|:soon:|
+|[Elevator](https://github.com/gofixyourself/Object-Oriented-Programming/tree/Elevator/Elevator)|:white_check_mark:|
 |[Diagram](https://github.com/gofixyourself/Object-Oriented-Programming/tree/master/Diagram)|:white_check_mark:|
 
 ## Legend:
