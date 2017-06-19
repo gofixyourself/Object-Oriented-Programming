@@ -3,7 +3,7 @@
 Controller::Controller(QWidget *parent) : QWidget(parent) {
     layout = new QVBoxLayout;
     this->setLayout(layout);
-    for (int i = 0; i < FLOOR_NUMBERS; i++) {
+    for (int i = FLOOR_NUMBERS; i >= 0; i--) {
         buttons[i] = new Buttons;
         layout->addWidget(dynamic_cast<QPushButton*>(buttons[i]));
         buttons[i]->setText(QString::number(i));
